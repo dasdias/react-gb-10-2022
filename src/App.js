@@ -1,9 +1,12 @@
 import './App.css';
+import { Message } from './Components/Message';
 
 export function App() {
+  const text = 'Привет, как дела?';
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div>
+      <h1 className="App">Hello</h1>
+      <Message txt={text}/>
     </div>
   );
 }
