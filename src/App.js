@@ -9,12 +9,13 @@ export function App() {
     author: "",
   });
   const [messageList, setMessageList] = useState([
-    { text: 'Привет, как дела?', author: 'Петя' },
-    { text: 'Что нового на плюке?', author: 'Вася' }
-  ])
+    // { text: 'Привет, как дела?', author: 'Петя' },
+    // { text: 'Что нового на плюке?', author: 'Вася' }
+  ]);
+  const robotMsg = "Мы получили ваше сообщение и скоро свяжемся с вами.";
   return (
     <div className="App">
-      <Form dataInput={inputMsg} setInputMsg={setInputMsg} setMessage={setMessageList} />
+      <Form dataInput={inputMsg} setInputMsg={setInputMsg} messageList={messageList} setMessage={setMessageList} robotMsg={robotMsg} />
       <MessageList messages={messageList} />
     </div>
   );
