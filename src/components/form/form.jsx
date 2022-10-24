@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import style from "./form.module.css";
 
 export const Form = ({ dataInput, setInputMsg, setMessage, messageList, robotMsg }) => {
@@ -11,15 +11,15 @@ export const Form = ({ dataInput, setInputMsg, setMessage, messageList, robotMsg
     }
     setInputMsg({ text: "", author: "" });
   }
-  useEffect(() => {
-    console.log(robotMsg)
-    if (messageList.length > 0 && messageList.slice(-1)[0].author !== 'robot') {
-      setTimeout(() => {
-        setMessage((prev) => [...prev, { text: robotMsg, author: 'robot' }])
-      }, 2000)
-    }
+  // useEffect(() => {
+  //   console.log(messageList[messageList.length - 1])
+  //   if (messageList.length > 0 && messageList[messageList.length - 1].author !== 'robot') {
+  //     setTimeout(() => {
+  //       setMessage((prev) => [...prev, { text: robotMsg, author: 'robot' }])
+  //     }, 2000)
+  //   }
 
-  }, [messageList])
+  // }, [messageList])
   return (
     <form className={style.form} onSubmit={submitForm}>
       <div>
