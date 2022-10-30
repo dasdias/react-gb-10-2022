@@ -1,0 +1,16 @@
+.messagelist {
+  flex-grow: 1;
+  background-color: aquamarine;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.msg span {
+  padding: 4px 8px;
+  background-color: rgb(48, 99, 161);
+  border-radius: 8px;
+}
+
+.msg+.msg {
+  margin-top: 15px;
+}

@@ -1,7 +1,8 @@
+import style from './messageList.module.css'
 export const MessageList = ({ messages }) => {
   return (
-    <>
-      {messages.map((message, i) => <div key={i}>Сообщение: {message.text}; автор: {message.author}</div>)}
-    </>
+    <div className={style.messagelist}>
+      {messages.map((message, i) => <div className={style.msg} key={i}><span>{message.text}; автор: {message.author}</span></div>)}
+    </div>
   )
 }
