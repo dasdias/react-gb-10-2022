@@ -10,7 +10,11 @@ export function App() {
     author: "",
   });
   const [messageList, setMessageList] = useState([]);
-  const [chatList, setChatList] = useState([]);
+  const [chatList, setChatList] = useState([
+    { id: "chat01", name: "Chat-01" },
+    { id: "chat02", name: "Chat-02" },
+    { id: "chat02", name: "Chat-03" },
+  ]);
 
   const robotMsg = "Мы получили ваше сообщение и скоро свяжемся с вами.";
 
@@ -30,7 +34,7 @@ export function App() {
   }, [messageList])
   return (
     <div className="app">
-      <ChatList />
+      <ChatList chatList={chatList} setChatList={setChatList} />
       <div className="chat-body">
         <MessageList messages={messageList} />
         <Form dataInput={inputMsg} setInputMsg={setInputMsg} setMessage={setMessageList} />

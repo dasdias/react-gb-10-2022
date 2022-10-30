@@ -1,6 +1,6 @@
 .messagelist {
   flex-grow: 1;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   padding: 10px;
   overflow-y: auto;
 }
@@ -9,8 +9,13 @@
   padding: 4px 8px;
   background-color: rgb(48, 99, 161);
   border-radius: 8px;
+  color: rgb(241, 241, 241);
 }
 
 .msg+.msg {
   margin-top: 15px;
+}
+
+.msg-bot {
+  text-align: right;
 }
