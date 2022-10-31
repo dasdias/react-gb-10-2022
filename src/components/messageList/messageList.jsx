@@ -5,6 +5,6 @@ export const MessageList = ({ messages }) => {
 	return (
 		<div className={style.messagelist}>
 			{messages.map((message, i) => <div className={`${style.msg} ${message.author === 'robot' ? style.msg_bot : ""}`} key={i}><span>{message.text}; автор: {message.author}</span></div>)}
-		</div>
+		</div >
 	)
 }
