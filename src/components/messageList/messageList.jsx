@@ -8,6 +8,11 @@ export const MessageList = ({ messages }) => {
   let lastMsg = messages[messages?.length - 1];
 
   const { chatId } = useParams();
+  
+  const msg = messages[chatId] ?? [];
+  console.log(messages);
+  console.log(chatId);
+  console.log(msg);
 
 
 	return (
