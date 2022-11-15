@@ -4,7 +4,7 @@ import style from "./form.module.css";
 import SendIcon from '@mui/icons-material/Send';
 
 export const Form = ({ dataInput, setInputMsg, setMessage }) => {
-  const { text, author } = dataInput;
+  const { text } = dataInput;
   const submitForm = (e) => {
     e.preventDefault();
 
