@@ -2,14 +2,40 @@
 import { IconButton, TextField } from "@mui/material";
 import style from "./form.module.css";
 import SendIcon from '@mui/icons-material/Send';
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-export const Form = ({ dataInput, setInputMsg, setMessage }) => {
+export const Form = ({ dataInput, setInputMsg, setMessage, messageList }) => {
+
+  
   const { text } = dataInput;
+  const { chatId } = useParams();
+
+  const robotMsg = "Мы получили ваше сообщение и скоро свяжемся с вами.";
+
+  useEffect(() => {
+    let timerId;
+    if (messageList[chatId].length > 0 && messageList[chatId][messageList[chatId].length - 1].author !== 'robot') {
+      timerId = setTimeout(() => {
+        setMessage((prev) => {
+          return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text: robotMsg , author: 'robot' }] }
+        })
+      }, 1500)
+    }
+
+    return (() => {
+      clearTimeout(timerId);
+    })
+
+  }, [messageList, chatId, setMessage])
+
   const submitForm = (e) => {
     e.preventDefault();
 
     if (text.length > 0) {
-      setMessage((prev) => [...prev, { text, author: 'User' }])
+      setMessage((prev) => {
+        return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text, author: 'User' }]}
+      })
     }
     setInputMsg({ text: "", author: "User" });
   }
