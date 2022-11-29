@@ -25,7 +25,9 @@ export const PageChats = () => {
         <Route path="/" element={<div>Выберите чат.</div>} />
         <Route path=":chatId" element={<>
           <MessageList messages={messageList} />
+          {/* <MessageList /> */}
           <Form dataInput={inputMsg} setInputMsg={setInputMsg} messageList={messageList} setMessage={setMessageList} />
+          {/* <Form dataInput={inputMsg} setInputMsg={setInputMsg} messageList={messageList} setMessage={setMessageList} /> */}
         </>
         } />
       </Routes>

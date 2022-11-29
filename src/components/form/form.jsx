@@ -4,10 +4,15 @@ import style from "./form.module.css";
 import SendIcon from '@mui/icons-material/Send';
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const Form = ({ dataInput, setInputMsg, setMessage, messageList }) => {
 
-  
+  const conversations = useSelector(state => state.conversations.conversations);
+
+  // console.log(conversations)
+
+
   const { text } = dataInput;
   const { chatId } = useParams();
 
@@ -18,7 +23,7 @@ export const Form = ({ dataInput, setInputMsg, setMessage, messageList }) => {
     if (messageList[chatId].length > 0 && messageList[chatId][messageList[chatId].length - 1].author !== 'robot') {
       timerId = setTimeout(() => {
         setMessage((prev) => {
-          return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text: robotMsg , author: 'robot' }] }
+          return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text: robotMsg, author: 'robot' }] }
         })
       }, 1500)
     }
@@ -34,7 +39,7 @@ export const Form = ({ dataInput, setInputMsg, setMessage, messageList }) => {
 
     if (text.length > 0) {
       setMessage((prev) => {
-        return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text, author: 'User' }]}
+        return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text, author: 'User' }] }
       })
     }
     setInputMsg({ text: "", author: "User" });

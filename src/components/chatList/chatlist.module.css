@@ -1,6 +1,7 @@
 .chatlist {
 	padding: 10px;
 	border-right: 1px solid #000;
+	min-width: 105px;
 	/* background-color: blue; */
 }
 
