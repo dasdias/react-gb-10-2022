@@ -44,7 +44,7 @@ export const ChatList = () => {
 	return (
 
 		<div className={[style.chatlist, style.chatlist_shadow].join(' ')}>
-			<button onClick={() => createConversationsList()}>Создать чат.</button>
+			<button style={{ display: 'inline-block', marginBottom: '25px' }} onClick={() => createConversationsList()}>Создать чат.</button>
 			<List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', borderRadius: '8px' }}>
 				{conversations.map((listElem, i) => (
 					<ListItem key={listElem.id}>

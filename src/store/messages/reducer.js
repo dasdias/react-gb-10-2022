@@ -10,7 +10,7 @@ const initialState = {
   }
 };
 
-export const messageReducer = (state = initialState, action) => {
+export const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return {
