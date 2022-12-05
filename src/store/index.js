@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-
+import { getPublicApi, searchGistsByNameApi } from "../api/gists";
 import { messagesReducer } from "./messages";
 import { 
   botMessage,
@@ -13,6 +13,9 @@ import {
   // timeScheduler
 } from "./middlewares/";
 import { profileReducer } from "./profile";
+import { gistsReducer } from "./gists";
+
+const api = { getPublicApi, searchGistsByNameApi };
 
 const persistConfig = {
   key: "gbchat",
@@ -24,7 +27,8 @@ const persistedReducer = persistReducer(
   combineReducers({
     profile: profileReducer,
     conversations: conversationsReducer,
-    messages: messagesReducer
+    messages: messagesReducer,
+    gists: gistsReducer
   })
 );
 
@@ -36,7 +40,7 @@ export const store = createStore(
     // logger,
     // timeScheduler,
     botMessage,
-    thunk
+    thunk.withExtraArgument(api)
     )));
 
 export const persistor = persistStore(store);

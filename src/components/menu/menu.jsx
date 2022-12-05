@@ -12,6 +12,9 @@ export const Menu = () => {
         <NavLink className={style.list} to="/profile">Профиль</NavLink>
 			</ListItem>
 			<ListItem>
+        <NavLink className={style.list} to="/gists">Асинхронный запрос к GistsPage</NavLink>
+			</ListItem>
+			<ListItem>
         <NavLink className={style.list} to="/chats">Чаты</NavLink>
 			</ListItem>
 		</List>
