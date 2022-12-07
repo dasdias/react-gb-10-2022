@@ -9,10 +9,16 @@ export const Menu = () => {
         <NavLink className={style.list} to="/">Главная</NavLink>
 			</ListItem>
 			<ListItem>
-        <NavLink className={style.list} to="/profile">Профиль</NavLink>
+        <NavLink className={style.list} to="/login">Login</NavLink>
+			</ListItem>
+			<ListItem>
+        <NavLink className={style.list} to="/signup">SignUp</NavLink>
 			</ListItem>
 			<ListItem>
         <NavLink className={style.list} to="/gists">Асинхронный запрос к GistsPage</NavLink>
+			</ListItem>
+			<ListItem>
+        <NavLink className={style.list} to="/profile">Профиль</NavLink>
 			</ListItem>
 			<ListItem>
         <NavLink className={style.list} to="/chats">Чаты</NavLink>
