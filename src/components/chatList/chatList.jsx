@@ -4,21 +4,36 @@ import style from "./chatlist.module.css";
 // import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback } from "react";
-import { deleteConversation } from "../../store/conversations";
-import { createConversation } from "../../store/conversations";
+import { useCallback, useEffect } from "react";
+import { 
+  conversationsSelector,
+  removeConversationByName,
+  createConversationByName as createConversation,
+  getConversations,
+} from "../../store/conversations";
 
 
 
 
 export const ChatList = () => {
 
-	const conversations = useSelector(state => state.conversations.conversations);
+	// const conversations = useSelector(state => state.conversations.conversations);
+  const conversations = useSelector(conversationsSelector);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+  // const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getConversations());
+    // dispatch(getMessages());
+  }, [dispatch]);
+
+
+  // console.log(conversations);
+
 	const deleteConversationsList = useCallback((listId) => {
-		dispatch(deleteConversation(listId))
+    dispatch(removeConversationByName(listId))
 		navigate('/chats');
   }, [dispatch, navigate]);
 
@@ -26,6 +41,8 @@ export const ChatList = () => {
 		const name = prompt('Введите имя: ');
 		const id = new Date().getTime().toString()
 		let isValidName = true;
+
+    // console.log(conversations);
 
 		conversations.forEach(element => {
 			if (element.name === name) {

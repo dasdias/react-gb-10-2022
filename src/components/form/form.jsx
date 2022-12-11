@@ -4,19 +4,27 @@ import style from "./form.module.css";
 import SendIcon from '@mui/icons-material/Send';
 import { useParams } from "react-router-dom";
 import {
+  useMemo,
   // useEffect,
   useState
 } from "react";
 import {
-  useDispatch,
+  useDispatch, useSelector,
   // useSelector
 } from "react-redux";
 import { 
-  sendMessage,
+  // sendMessage,
+  // messagessSelector,
+  sendMessageFb,
   // sendMessageWithBot
 } from "../../store/messages"
 
 export const Form = () => {
+  const { chatId } = useParams();
+
+  // const selector = useMemo(() => messagessSelector(chatId), [chatId]);
+
+  // const messages = useSelector(selector);
 
   // const conversations = useSelector(state => state.conversations.conversations);
   const dispatch = useDispatch();
@@ -28,7 +36,7 @@ export const Form = () => {
   });
 
   // const { text } = dataInput;
-  const { chatId } = useParams();
+
 
   // const messagesState = useSelector((state) => {
   //   return state.messages.messages[chatId] ?? [];
@@ -60,7 +68,8 @@ export const Form = () => {
     e.preventDefault();
 
     if (inputMsg.message.length > 0) {
-      dispatch(sendMessage(chatId, inputMsg))
+      // dispatch(sendMessageFb(chatId, inputMsg))
+      dispatch(sendMessageFb(inputMsg, chatId))
       // dispatch(sendMessageWithBot(chatId, inputMsg))
       // setMessage((prev) => {
       //   return { ...prev, [chatId]: [...(prev[chatId] ?? []), { text, author: 'User' }] }

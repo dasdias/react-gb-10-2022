@@ -7,7 +7,7 @@ export const getConversationsApi = () => {
 
 export const createConversationApi = (conversation) => {
   return set(
-    child(ref(database), `conversations/${conversation}`),
+    child(ref(database), `conversations/${conversation.id}`),
     conversation
   );
 };

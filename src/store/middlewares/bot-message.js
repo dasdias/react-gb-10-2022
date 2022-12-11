@@ -7,7 +7,7 @@ export const botMessage = (store) => (next) => (action) => {
   ) {
     setTimeout(() => {
       store.dispatch(
-        sendMessage(action.payload.roomId, {
+        sendMessage(action.payload.chatId, {
           author: "Bot",
           message: "hello from middleware",
         })

@@ -1,18 +1,26 @@
 import { useParams } from 'react-router-dom';
 import style from './messageList.module.css'
-import { deleteMessage } from '../../store/messages'
+import { deleteMessage, getMessages, messagessSelector } from '../../store/messages'
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useMemo } from 'react';
 
 export const MessageList = ({ messages }) => {
 
   const { chatId } = useParams();
-
-  const messagesState = useSelector((state) => {
-    return state.messages.messages[chatId] ?? [];
-  });
-  // console.log(messagesState);
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMessages());
+  }, [dispatch]);
+
+  // const messagesState = useSelector((state) => {
+  //   return state.messages.messages[chatId] ?? [];
+  // });
+  
+  const selector = useMemo(() => messagessSelector(chatId), [chatId]);
+  const messagesState = useSelector(selector);
+  
+  console.log(messagesState);
 
   // let lastMsg = messages[messages?.length - 1];
 
