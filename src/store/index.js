@@ -17,7 +17,7 @@ import { getMessagesApi, createMessageApi } from "../api/messages";
 import { messagesReducer } from "./messages";
 import { 
   botMessage,
-  logger,
+  // logger,
   // timeScheduler
 } from "./middlewares/";
 import { profileReducer } from "./profile";
@@ -55,7 +55,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
   persistedReducer,
   composeEnhancers(applyMiddleware(
-    logger,
+    // logger,
     // timeScheduler,
     botMessage,
     thunk.withExtraArgument(api)

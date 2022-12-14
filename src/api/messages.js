@@ -6,10 +6,10 @@ export const getMessagesApi = () => {
   return get(child(ref(database), "messages"));
 };
 
-export const createMessageApi = async (message, roomId) => {
+export const createMessageApi = async (message, chatId) => {
   const newMessage = { ...message, id: nanoid(), date: String(new Date()) };
 
-  await push(child(ref(database), `messages/${roomId}`), newMessage);
+  await push(child(ref(database), `messages/${chatId}`), newMessage);
 
   return newMessage;
 };

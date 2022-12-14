@@ -20,7 +20,7 @@ export const MessageList = ({ messages }) => {
   const selector = useMemo(() => messagessSelector(chatId), [chatId]);
   const messagesState = useSelector(selector);
   
-  console.log(messagesState);
+  // console.log(messagesState);
 
   // let lastMsg = messages[messages?.length - 1];
 

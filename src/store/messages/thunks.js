@@ -6,6 +6,9 @@ import {
 } from "./actions";
 
 export const sendMessageWithBot = (chatId, message) => (dispatch) => {
+
+  console.log(chatId);
+  console.log(message);
   dispatch(sendMessage(chatId, message));
 
   if (message.author === "User") {
@@ -28,7 +31,7 @@ export const getMessages = () => async (dispatch, _, api) => {
 
     
     snapshot.forEach((snap) => {
-      console.log(snap);
+      // console.log(snap);
       messages[snap.key] = Object.values(snap.val());
     });
 
