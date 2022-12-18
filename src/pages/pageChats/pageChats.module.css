@@ -1,0 +1,10 @@
+.pageChats {
+  display: flex;
+  height: 100%;
+}
+.pageBody {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

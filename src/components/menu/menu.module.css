@@ -1,0 +1,9 @@
+.list {
+  color: rgb(41, 134, 255);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.list:hover {
+  color: rgb(16, 115, 245);
+  text-decoration: none;
+}
